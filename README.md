@@ -9,8 +9,8 @@ pip install opencv-python
 ## Usage
 1. put you video in directory with VTF py file
 ###### it must look like this:
-![image](https://github.com/NVcoder24/Video_Tools_Python/blob/resources/step1.png?raw=true)
-2. run "video to frames.py"
+![image](https://github.com/NVcoder24/Video_Tools_Python/blob/resources/step1.png?raw=true)<br>
+2. run "video to frames.py"<br>
 3. frames will be save in frames folder
 
 ## Config
