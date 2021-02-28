@@ -1,12 +1,16 @@
 import cv2
 import os
+from config import tools_cfg
 
-vidcap = cv2.VideoCapture('source.mp4')
+show_p = tools_cfg["Base_cfg"]["info"]["show_process"]
+print_p = tools_cfg["Base_cfg"]["info"]["print_process"]
+
+vidcap = cv2.VideoCapture(f"{tools_cfg['VTF_cfg']['paths']['file_name']}.{tools_cfg['VTF_cfg']['paths']['format']}")
 success,image = vidcap.read()
 count = 0
 count_ = 1
 success = True
-path = f"{os.path.dirname(os.path.realpath(__file__))}\\frames\\"
+path = tools_cfg['VTF_cfg']['paths']['frames_path']
 length = int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
 fps = vidcap.get(cv2.CAP_PROP_FPS)
 height = vidcap.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -31,8 +35,10 @@ while success:
     try:
         cv2.imwrite(f"{path}frame_{count}.png", image)
         count__ = find_procent(count_, length)
-        print(f"Frame {count} saved! ({iff(count__)}%)")
-        cv2.imshow(f"Current frame", image)
+        if print_p:
+            print(f"Frame {count} saved! ({iff(count__)}%)")
+        if show_p:
+            cv2.imshow(f"Current frame", image)
         if cv2.waitKey(10) == 27:
             cv2.destroyAllWindows()
             break
