@@ -6,6 +6,11 @@ video tools!
 pip install opencv-python
 ```
 
+## Usage
+1. put you video in directory with VTF py file
+###### it must look like this:
+![alt text](https://github.com/NVcoder24/Video_Tools_Python/blob/resources/step1.png?raw=true)
+
 ## Config
 ```python
 import os
